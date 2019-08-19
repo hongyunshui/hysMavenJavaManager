@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.hys</groupId>
     <artifactId>manager</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
   </parent>
   <artifactId>manager-service</artifactId>
   
@@ -11,7 +11,7 @@
   	<dependency>
   		<groupId>com.hys</groupId>
     	<artifactId>manager-mapper</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
+    	<version>0.0.2-SNAPSHOT</version>
   	</dependency>
   	<!-- Spring -->
   		<dependency>

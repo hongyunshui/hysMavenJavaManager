@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.hys</groupId>
     <artifactId>manager</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
   </parent>
   <artifactId>manager-web</artifactId>
   <packaging>war</packaging>
@@ -16,7 +16,7 @@
   	<dependency>
   		<groupId>com.hys</groupId>
   		<artifactId>manager-service</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
+    	<version>0.0.2-SNAPSHOT</version>
   	</dependency>
   	<!-- JSP相关 -->
    	<dependency>
