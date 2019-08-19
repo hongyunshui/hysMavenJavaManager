@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:web="http://java.sun.com/xml/ns/javaee" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+	id="WebApp_ID" version="2.5">
+  <display-name>manager</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 自定义编码拦截器 -->
+  <filter>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet-mapping>    
+    <servlet-name>default</servlet-name>    
+    <url-pattern>*.js</url-pattern>  
+  </servlet-mapping>
+  
+  <!-- 初始化spring上下文 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <!--加载spring容器
+  	初始化文件的位置 具体怎么加载的spring已经为我们写好了  我们所可以改的就是
+    <param-value>classpath:spring/applicationContext-*.xml</param-value>
+    	还句话说 配置此处的目的就是告诉spring要加载的配置文件的路径  -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring/applicationContext-*.xml</param-value>
+  </context-param>
+  
+  <!-- 前端控制器
+  	把拦截功能交给spring的代码 -->
+  <servlet>
+    <servlet-name>taotao-manager</servlet-name>
+    <servlet-class>
+    	org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+    <!-- 指定spring默认配置文件为spring/springmvc.xml，
+    	否则会寻找名为xxx-servlet.xml的配置文件 -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring/springmvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>taotao-manager</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+ </web-app>
