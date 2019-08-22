@@ -54,18 +54,7 @@ public class ItemServiceImp implements ItemService {
 		}
 		return null;
 	}
-	
-	/**
-	 * 商品规格参数列表查询
-	 * @param page
-	 * @param rows
-	 * @return
-	 */
-	@Override
-	public EUDataGridResult getItemParamItemList(int page, int rows){
-		// TODO
-		return null;
-	}
+
 
 	/**
 	 * 商品列表查询

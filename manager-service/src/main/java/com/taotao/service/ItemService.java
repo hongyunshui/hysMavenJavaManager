@@ -11,9 +11,6 @@ public interface ItemService {
 	// 获取商品列表
 	EUDataGridResult getItemList(int page, int rows);
 	
-	// 获取商品规格参数列表
-	EUDataGridResult getItemParamItemList(int page, int rows);
-	
 	// 插入新的商品信息，返回RespResult
 	RespResult createItem(TbItem item,String desc) throws Exception;
 	

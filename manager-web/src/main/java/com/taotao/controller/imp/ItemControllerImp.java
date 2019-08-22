@@ -4,7 +4,9 @@ import com.taotao.common.pojo.EUDataGridResult;
 import com.taotao.common.pojo.RespResult;
 import com.taotao.controller.ItemController;
 import com.taotao.pojo.TbItem;
+import com.taotao.service.ItemParamService;
 import com.taotao.service.ItemService;
+import com.taotao.service.imp.ItemServiceImp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,17 +66,6 @@ public class ItemControllerImp implements ItemController  {
 		return itemMsg;
 	}
 	
-	/**
-	 * 查询商品规格参数列表
-	 * @param page
-	 * @param rows
-	 * @return
-	 */
-	@RequestMapping("/item/param/list")
-	@ResponseBody
-	private EUDataGridResult getItemParamItemList(Integer page, Integer rows){
-		EUDataGridResult result = itemService.getItemParamItemList(page, rows);
-		return result;
-	}
+
 
 }
