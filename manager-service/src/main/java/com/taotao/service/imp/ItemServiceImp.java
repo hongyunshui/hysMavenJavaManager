@@ -14,13 +14,9 @@ import com.taotao.common.utils.IDUtils;
 import com.taotao.mapper.ItemMapper;
 import com.taotao.mapper.TbItemDescMapper;
 import com.taotao.mapper.TbItemMapper;
-import com.taotao.mapper.TbItemParamItemMapper;
 import com.taotao.pojo.Item;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemDesc;
-import com.taotao.pojo.TbItemParamItem;
-import com.taotao.pojo.TbItemParamItemExample;
-//import com.taotao.service.ItemService;
 import com.taotao.service.ItemService;
 
 /**
@@ -36,9 +32,6 @@ public class ItemServiceImp implements ItemService {
 	
 	@Autowired
 	private TbItemDescMapper tbItemDescMapper;
-	
-	@Autowired
-	private TbItemParamItemMapper tbItemParamListMapper;
 	
 	@Autowired 
 	private ItemMapper itemMapper;

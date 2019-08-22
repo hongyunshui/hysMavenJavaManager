@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EUDataGridResult;
+import com.taotao.common.pojo.RespResult;
 import com.taotao.mapper.ItemParamMapper;
+import com.taotao.mapper.TbItemParamMapper;
 import com.taotao.pojo.ItemParam;
+import com.taotao.pojo.TbItemParam;
+import com.taotao.pojo.TbItemParamExample;
 import com.taotao.service.ItemParamService;
 
 @Service
@@ -17,6 +21,9 @@ public class ItemParamServiceImp implements ItemParamService {
 	
 	@Autowired
 	private ItemParamMapper itemParamMapper;
+	
+	@Autowired
+	private TbItemParamMapper tbItemParamMapper;
 	
 	
 	/**
@@ -37,6 +44,23 @@ public class ItemParamServiceImp implements ItemParamService {
 		PageInfo<ItemParam> pageInfo = new PageInfo<>(itemParamList);
 		result.setTotal(pageInfo.getTotal());
 		return result;
+	}
+
+
+	/**
+	 * 根据类目cid查询规格参数
+	 */
+	@Override
+	public RespResult getItemParamByCid(long cid) {
+		TbItemParamExample example = new TbItemParamExample();
+		TbItemParamExample.Criteria criteria = example.createCriteria();
+		criteria.andItemCatIdEqualTo(cid);
+		List<TbItemParam> tbItemParamList = tbItemParamMapper.selectByExample(example);
+		// 判断是否查询到结果
+		if(tbItemParamList != null && tbItemParamList.size()>0){
+			return RespResult.ok(tbItemParamList.get(0));
+		}
+		return RespResult.ok();
 	}
 
 }
